@@ -20,10 +20,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ConfigManager configModel = covertObj(config, ConfigManager.class);
+        ConfigManager configManager = new ConfigManager();
+        ConfigManager configModel = configManager.processConfigs(config);
         logModelDetail(configModel);
 
-        ScheduleManager scheduleModel = covertObj(schedule, ScheduleManager.class);
+        ScheduleManager manager = new ScheduleManager();
+        ScheduleManager scheduleModel = manager.processSchedules(schedule);
         logModelDetail(scheduleModel);
     }
 
